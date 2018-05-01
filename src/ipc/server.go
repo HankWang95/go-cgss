@@ -38,6 +38,7 @@ func (server *IpcServer) Connect() chan string {
 				break
 			}
 			var req Request
+			// marshal 把对象转换成json，Unmarshal 用来把json数据转换回对象
 			err := json.Unmarshal([]byte(request), &req)
 			if err != nil {
 				fmt.Println("Invalid request format:", request)
